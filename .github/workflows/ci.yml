@@ -9,14 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
- 
+ jobs:
     steps:
-      - name: Checkout code
+   
         uses: actions/checkout@v4
- 
-      - name: Build the Docker image with tag
-      run: docker build . --file Dockerfile --tag my-image-name:${{ github.run_number }}
-      name: build latest
-      run: docker build . --file Dockerfile --tag my-image-name
-      name: login to Docker hub
-      run: docker login -u username -p password
+        name: Build the Docker image with tag
+        run: docker build . --file Dockerfile --tag my-image-name:${{github.run_number}}
+        name: Build latest
+        run: docker build . --file Dockerfile --tag my-image-name
